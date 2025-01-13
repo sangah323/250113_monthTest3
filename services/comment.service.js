@@ -10,8 +10,8 @@ const findOne = async (id) => {
   return result;
 };
 
-const write = async (data) => {
-  const result = await commentRepository.write(data);
+const write = async (content) => {
+  const result = await commentRepository.write(content);
   return result;
 };
 

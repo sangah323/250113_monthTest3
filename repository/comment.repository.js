@@ -10,7 +10,7 @@ const findOne = async (id) => {
   return result;
 };
 
-const write = async (content) => {
+const write = async ({ content }) => {
   const [result] = await pool.query(
     `INSERT INTO comments(content) values("${content}");`
   );

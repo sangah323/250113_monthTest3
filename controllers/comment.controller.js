@@ -7,7 +7,8 @@ const getCommentList = async (req, res) => {
 
 const postCommentWrite = async (req, res) => {
   try {
-    await commentServices.write();
+    const content = req.body;
+    await commentServices.write(content);
     res.redirect("/comment/list");
   } catch (error) {
     console.log(error);
