@@ -20,4 +20,9 @@ const drop = async (id) => {
   return result;
 };
 
-module.exports = { findAll, findOne, write, drop };
+const update = async (data) => {
+  const result = await commentRepository.update(data);
+  return result;
+};
+
+module.exports = { findAll, findOne, write, drop, update };

@@ -19,8 +19,15 @@ const postCommentDelete = async (req, res) => {
 const getCommentUpdate = async (req, res) => {
   const id = parseInt(req.params.id);
   const comment = await commentServices.findOne(id);
-  console.log(comment);
   res.render("comment/update.html", { comment });
+};
+
+const postCommentUpdate = async (req, res) => {
+  const id = parseInt(req.params.id);
+  const { content } = req.body;
+  const data = { id: id, content: content };
+  await commentServices.update(data);
+  res.redirect("/comment/list");
 };
 
 module.exports = {
@@ -28,4 +35,5 @@ module.exports = {
   postCommentWrite,
   postCommentDelete,
   getCommentUpdate,
+  postCommentUpdate,
 };

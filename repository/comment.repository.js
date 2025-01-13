@@ -22,4 +22,11 @@ const drop = async (id) => {
   return result;
 };
 
-module.exports = { findAll, findOne, write, drop };
+const update = async ({ content, id }) => {
+  const [result] = await pool.query(
+    `UPDATE comments SET content="${content}" WHERE id=${id};`
+  );
+  return result;
+};
+
+module.exports = { findAll, findOne, write, drop, update };
