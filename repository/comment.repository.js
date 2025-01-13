@@ -5,6 +5,11 @@ const findAll = async () => {
   return result;
 };
 
+const findOne = async (id) => {
+  const [result] = await pool.query(`SELECT * FROM comments WHERE id=${id};`);
+  return result;
+};
+
 const write = async (content) => {
   const [result] = await pool.query(
     `INSERT INTO comments(content) values("${content}");`
@@ -17,4 +22,4 @@ const drop = async (id) => {
   return result;
 };
 
-module.exports = { findAll, write, drop };
+module.exports = { findAll, findOne, write, drop };

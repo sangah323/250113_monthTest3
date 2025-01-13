@@ -30,7 +30,9 @@
    - 댓글이 작성된 날짜와 시간 저장
    - 기본값으로 현재 시간 저장
 
-### MySQL 입력
+## MySQL
+
+### TABLE 생성
 
 ```sql
 CREATE TABLE comments (
@@ -41,9 +43,35 @@ CREATE TABLE comments (
 );
 ```
 
+### 데이터 입력
+
 ```sql
 INSERT INTO comments(content) values("오늘 평가래~");
 INSERT INTO comments(content) values("오늘 할 일 : 집에 뛰어가기");
+```
+
+### 모든 컬럼 조회
+
+```sql
+SELECT * FROM comments;
+```
+
+### 특정 컬럼 조회
+
+```sql
+SELECT * FROM comments WHERE id=${id};
+```
+
+### 데이터 삭제
+
+```sql
+DELETE FROM comments WHERE id=${id};
+```
+
+### 데이터 수정
+
+```sql
+UPDATE comments SET content="${content}" WHERE id=${id};
 ```
 
 ## 화면이 필요한 HTML
