@@ -16,4 +16,16 @@ const postCommentDelete = async (req, res) => {
   res.redirect("/comment/list");
 };
 
-module.exports = { getCommentList, postCommentWrite, postCommentDelete };
+const getCommentUpdate = async (req, res) => {
+  const id = parseInt(req.params.id);
+  const comment = await commentServices.findOne(id);
+  console.log(comment);
+  res.render("comment/update.html", { comment });
+};
+
+module.exports = {
+  getCommentList,
+  postCommentWrite,
+  postCommentDelete,
+  getCommentUpdate,
+};

@@ -5,8 +5,13 @@ const findAll = async () => {
   return result;
 };
 
-const write = async (content) => {
-  const result = await commentRepository.write(content);
+const findOne = async (id) => {
+  const [result] = await commentRepository.findOne(id);
+  return result;
+};
+
+const write = async (data) => {
+  const result = await commentRepository.write(data);
   return result;
 };
 
@@ -15,4 +20,4 @@ const drop = async (id) => {
   return result;
 };
 
-module.exports = { findAll, write, drop };
+module.exports = { findAll, findOne, write, drop };
