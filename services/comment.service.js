@@ -5,4 +5,10 @@ const findAll = async () => {
   return result;
 };
 
-module.exports = { findAll };
+const write = async (content) => {
+  console.log("ss");
+  const result = await commentRepository.write(content);
+  return result;
+};
+
+module.exports = { findAll, write };

@@ -5,4 +5,12 @@ const findAll = async () => {
   return result;
 };
 
-module.exports = { findAll };
+const write = async (content) => {
+  console.log("rr");
+  const [result] = await pool.query(
+    `INSERT INTO comments(content) values("${content}");`
+  );
+  return result;
+};
+
+module.exports = { findAll, write };

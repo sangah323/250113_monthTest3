@@ -5,4 +5,10 @@ const getCommentList = async (req, res) => {
   res.render("comment/list.html", { commentList });
 };
 
-module.exports = { getCommentList };
+const postCommentWrite = async (req, res) => {
+  console.log("cc");
+  await commentServices.write();
+  res.redirect("/comment/list");
+};
+
+module.exports = { getCommentList, postCommentWrite };
