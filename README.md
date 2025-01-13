@@ -30,6 +30,22 @@
    - 댓글이 작성된 날짜와 시간 저장
    - 기본값으로 현재 시간 저장
 
+### MySQL 입력
+
+```sql
+CREATE TABLE comments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id VARCHAR(30) NOT NULL,
+    content TEXT NOT NULL,
+    create_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+```sql
+INSERT INTO comments(user_id, content) values("whtkddk323", "오늘 평가래~");
+INSERT INTO comments(user_id, content) values("tkddk", "오늘 할 일 : 6시에 집에 뛰어가기");
+```
+
 ## 화면이 필요한 HTML
 
 - list.html
