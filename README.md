@@ -35,15 +35,15 @@
 ```sql
 CREATE TABLE comments (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id VARCHAR(30) NOT NULL,
+    user_id VARCHAR(30) NOT NULL DEFAULT "whtkddk323",
     content TEXT NOT NULL,
     create_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 ```
 
 ```sql
-INSERT INTO comments(user_id, content) values("whtkddk323", "오늘 평가래~");
-INSERT INTO comments(user_id, content) values("tkddk", "오늘 할 일 : 6시에 집에 뛰어가기");
+INSERT INTO comments(content) values("오늘 평가래~");
+INSERT INTO comments(content) values("오늘 할 일 : 집에 뛰어가기");
 ```
 
 ## 화면이 필요한 HTML
@@ -64,7 +64,7 @@ INSERT INTO comments(user_id, content) values("tkddk", "오늘 할 일 : 6시에
 
 7. 댓글 생성이 잘 구현했는가? (10점)
 
-- 댓글을 작성할 때, user_id는 값을 동적인 값이 아닌, 동적값 입니다. ex => `wnqudgus1234`
+- 댓글을 작성할 때, user_id는 값을 동적인 값이 아닌, 정적값 입니다.
 
 8. 댓글 조회를 잘 구현했는가? (10점)
 9. 댓글 수정을 잘 구현했는가? (10점)

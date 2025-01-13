@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const { getCommentList } = require("../controllers/comment.controller.js");
 
-router.get("/list", (req, res) => {
-  res.render("comment/list.html");
-});
+router.get("/list", getCommentList);
 
 module.exports = router;

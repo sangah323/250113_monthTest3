@@ -2,7 +2,6 @@ const express = require("express");
 const nunjucks = require("nunjucks");
 const router = require("./routes/index.js");
 const app = express();
-
 const PORT = process.env.SERVER_PORT ? process.env.SERVER_PORT : 3000;
 
 app.set("view engine", "html");
