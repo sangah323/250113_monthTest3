@@ -6,28 +6,48 @@ const getCommentList = async (req, res) => {
 };
 
 const postCommentWrite = async (req, res) => {
-  await commentServices.write();
-  res.redirect("/comment/list");
+  try {
+    await commentServices.write();
+    res.redirect("/comment/list");
+  } catch (error) {
+    console.log(error);
+    res.status(404).send("댓글 작성 실패");
+  }
 };
 
 const postCommentDelete = async (req, res) => {
-  const id = parseInt(req.params.id);
-  await commentServices.drop(id);
-  res.redirect("/comment/list");
+  try {
+    const id = parseInt(req.params.id);
+    await commentServices.drop(id);
+    res.redirect("/comment/list");
+  } catch (error) {
+    console.log(error);
+    res.status(404).send("댓글 삭제 실패");
+  }
 };
 
 const getCommentUpdate = async (req, res) => {
-  const id = parseInt(req.params.id);
-  const comment = await commentServices.findOne(id);
-  res.render("comment/update.html", { comment });
+  try {
+    const id = parseInt(req.params.id);
+    const comment = await commentServices.findOne(id);
+    res.render("comment/update.html", { comment });
+  } catch (error) {
+    console.log(error);
+    res.status(404).send("댓글 조회 실패");
+  }
 };
 
 const postCommentUpdate = async (req, res) => {
-  const id = parseInt(req.params.id);
-  const { content } = req.body;
-  const data = { id: id, content: content };
-  await commentServices.update(data);
-  res.redirect("/comment/list");
+  try {
+    const id = parseInt(req.params.id);
+    const { content } = req.body;
+    const data = { id: id, content: content };
+    await commentServices.update(data);
+    res.redirect("/comment/list");
+  } catch (error) {
+    console.log(error);
+    res.status(404).send("댓글 수정 실패");
+  }
 };
 
 module.exports = {
