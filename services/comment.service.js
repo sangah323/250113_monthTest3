@@ -1,4 +1,4 @@
-const commentRepository = require("../repository/comment.repository.js");
+const commentRepository = require("../repository/comment.repository");
 
 const findAll = async () => {
   const result = await commentRepository.findAll();
@@ -6,9 +6,13 @@ const findAll = async () => {
 };
 
 const write = async (content) => {
-  console.log("ss");
   const result = await commentRepository.write(content);
   return result;
 };
 
-module.exports = { findAll, write };
+const drop = async (id) => {
+  const result = await commentRepository.drop(id);
+  return result;
+};
+
+module.exports = { findAll, write, drop };
