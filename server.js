@@ -1,11 +1,17 @@
 const express = require("express");
+const nunjucks = require("nunjucks");
+const router = require("./routes/index.js");
 const app = express();
 
 const PORT = process.env.SERVER_PORT ? process.env.SERVER_PORT : 3000;
 
-app.get("/", (req, res) => {
-  res.send("열림?");
-});
+app.set("view engine", "html");
+
+nunjucks.configure("views", { express: app });
+
+app.use(express.static("public"));
+
+app.use(router);
 
 app.listen(PORT, () => {
   console.log("server start");
